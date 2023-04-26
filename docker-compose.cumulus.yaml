@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  cumulus:
+    container_name: cumulus
+    image: gcr.io/cycloneport/cumulusmx:0.0.1
+    network_mode: "host"
+    volumes:
+      - /dev:/dev
+      - /run/udev:/run/udev:ro
+    privileged: true
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"

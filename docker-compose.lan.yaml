@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  # DHCP for private lan
+  lan:
+    container_name: lan
+    image: gcr.io/cycloneport/lan:0.0.1
+    restart: on-failure
+    privileged: true
+    network_mode: "host"
+    command: "--no-hosts --keep-in-foreground --log-queries --no-resolv --address=/#/${NETWORK_IP} --dhcp-range=${NETWORK_RANGE},72h --dhcp-vendorclass=set:device,IoT --dhcp-authoritative --dhcp-option=6,${DNS_SERVERS} --log-facility=- --listen-address=${NETWORK_IP} --interface=${INTERFACE} --except-interface=lo --bind-interfaces"

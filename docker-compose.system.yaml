@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  # Weatherstation system
+  system:
+    container_name: system
+    image: gcr.io/cycloneport/system:0.0.1
+    restart: on-failure
+    privileged: true
+    network_mode: "host"
+    cap_add:
+      - ALL
+    volumes:
+      - ./.env:/app/.env
+      - ./data:/data
+      - /lib/modules:/lib/modules
+      - /dev:/dev
+      - /var/log:/var/log
+      - /etc/udev/rules.d:/etc/udev/rules.d
+  
+  # Reverse proxy
+  caddy:
+    container_name: caddy
+    image: caddy:2.5.2-alpine@sha256:b31ff95e98737b849d6af1fb9d9cb54a66ba3684564b3310541f60b12b1dd619
+    restart: on-failure
+    network_mode: "host"
+    volumes:
+      - ./config/Caddyfile:/etc/caddy/Caddyfile

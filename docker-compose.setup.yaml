@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  # Setup process
+  setup:
+    container_name: setup
+    image: gcr.io/cycloneport/setup:0.0.1
+    restart: on-failure
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - ./.env:/weatherstation/.env
+      # Used for restarting system
+      - /proc/sysrq-trigger:/host/proc/sysrq-trigger
+      # Used to retrieve device model
+      - /sys/firmware/devicetree/base/:/host/sys/firmware/devicetree/base/
+      # Used to read WiFi settings
+      - /etc/wpa_supplicant/:/etc/wpa_supplicant/
+      # Used for DHCP settings
+      - /etc/dhcpcd.conf:/etc/dhcpcd.conf

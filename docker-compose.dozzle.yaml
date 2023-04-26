@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:v4.1.1@sha256:bddf55c582aa7f4d3d18d980ae51d8d73d9c76e4d0529451d45565c706da0858
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8888:8080
+    environment:
+      - DOZZLE_BASE=/debug/logs
