@@ -1,0 +1,17 @@
+{
+    "dnsmasq_cfg": {
+        "address": "/#/192.168.27.1",
+        "dhcp_range": "192.168.27.100,192.168.27.150,1h",
+        "vendor_class": "set:device,IoT",
+	"listen_address": "192.168.27.1"
+    },
+    "host_apd_cfg": {
+        "ip": "192.168.27.1",
+        "ssid": "cyclonePort",
+        "wpa_passphrase": "12345678",
+        "channel": "6"
+    },
+    "wpa_supplicant_cfg": {
+        "cfg_file": "/etc/wpa_supplicant/wpa_supplicant.conf"
+    }
+}
