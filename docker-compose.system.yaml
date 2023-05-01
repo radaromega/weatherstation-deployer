@@ -21,8 +21,6 @@ services:
   # Reverse proxy
   caddy:
     container_name: caddy
-    image: caddy:2.5.2-alpine@sha256:b31ff95e98737b849d6af1fb9d9cb54a66ba3684564b3310541f60b12b1dd619
+    image: cycloneport/caddy:0.0.1
     restart: on-failure
     network_mode: "host"
-    volumes:
-      - ./config/Caddyfile:/etc/caddy/Caddyfile
