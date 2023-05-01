@@ -4,11 +4,9 @@ services:
   # WiFi API
   txwifi:
     container_name: txwifi
-    image: gcr.io/cycloneport/txwifi:0.0.1
+    image: gcr.io/cycloneport/txwifi:0.0.2
     restart: on-failure
     privileged: true
     network_mode: "host"
     volumes:
       - /etc/wpa_supplicant/:/etc/wpa_supplicant/
-      - ./config/wificfg.json:/cfg/wificfg.json
-      - ./config/hostapd.conf:/etc/hostapd/hostapd.conf
