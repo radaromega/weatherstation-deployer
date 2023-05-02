@@ -21,6 +21,6 @@ services:
   # Reverse proxy
   caddy:
     container_name: caddy
-    image: cycloneport/caddy:0.0.1
+    image: gcr.io/cycloneport/caddy:0.0.1
     restart: on-failure
     network_mode: "host"
