@@ -17,7 +17,7 @@ services:
   # Net cam support
   net_cam:
     container_name: net_cam
-    image: gcr.io/cycloneport/net_cam:0.0.1
+    image: gcr.io/cycloneport/net_cam:0.0.2
     restart: on-failure
     network_mode: "host"
     volumes:
@@ -30,7 +30,7 @@ services:
   # Video manager
   video_manager:
     container_name: video_manager
-    image: gcr.io/cycloneport/video_manager:0.0.1
+    image: gcr.io/cycloneport/video_manager:0.0.2
     restart: on-failure
     network_mode: "host"
     volumes:
