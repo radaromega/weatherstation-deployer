@@ -11,6 +11,7 @@ services:
     cap_add:
       - ALL
     volumes:
+      - ./info.json:/app/info.json
       - ./.env:/app/.env
       - ./data:/data
       - /lib/modules:/lib/modules
