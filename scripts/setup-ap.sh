@@ -23,7 +23,7 @@ fi
 
 iw dev "${DESIRED_AP_IFACE}" del
 
-ifconfig
+# ifconfig
 
 ap_exists=$(ifconfig | grep "${DESIRED_AP_IFACE}" | wc -l)
 

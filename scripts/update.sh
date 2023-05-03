@@ -99,9 +99,9 @@ echo_line "Stopping all services"
 
 "${WS_ROOT}/scripts/stop.sh"
 
-# echo_line "Backing everything up"
+echo_line "Backing everything up"
 
-# cp -a "${WS_ROOT}" "${WS_BACKUP_ROOT}"
+cp -a "${WS_ROOT}" "${WS_BACKUP_ROOT}"
 
 download_weatherstation "${latest_version}"
 
