@@ -15,8 +15,14 @@ if ! [[ -f "${dotenv_path}" ]]; then
 	touch "${dotenv_path}"
 fi
 
-# Turn on orange to say it's booted
-# python3 ./python/pixel.py 0.1 255 94 19
+execpipe_path="/tmp/cycloneport-execpipe"
+if ! [[ -p $pipe ]]; then
+	mkfifo "${execpipe_path}"
+fi
+
+# Run execpipe
+screen -S execpipe -X quit || true
+screen -dmS execpipe "${WS_ROOT}/scripts/execpipe.sh"
 
 # Setup AP
 "${WS_ROOT}/scripts/setup-ap.sh"
@@ -39,12 +45,8 @@ docker compose -f "${WS_ROOT}/docker-compose.setup.yaml" up -d
 # Start Dozzle container
 docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" up -d
 
-# Start signal K related services
-# /sbin/ip link set can0 up type can bitrate 250000
-# service signalk restart
-
 # Start lan related services
-screen -dmS lan "${WS_ROOT}/lan/scripts/run.sh"
+screen -dmS lan "${WS_ROOT}/scripts/lan-start.sh"
 
 # Start video related services
 docker compose -f "${WS_ROOT}/docker-compose.video.yaml" up -d
