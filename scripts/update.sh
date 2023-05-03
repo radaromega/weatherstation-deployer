@@ -39,6 +39,20 @@ EOF
     echo_line "---------------------- Updating -----------------------"
 }
 
+echo_done() {
+	echo
+	cat << EOF
+oooooooooo.     .oooooo.   ooooo      ooo oooooooooooo 
+\`888'   \`Y8b   d8P'  \`Y8b  \`888b.     \`8' \`888'     \`8 
+ 888      888 888      888  8 \`88b.    8   888         
+ 888      888 888      888  8   \`88b.  8   888oooo8    
+ 888      888 888      888  8     \`88b.8   888    "    
+ 888     d88' \`88b    d88'  8       \`888   888       o 
+o888bood8P'    \`Y8bood8P'  o8o        \`8  o888ooooood8
+EOF
+	echo
+}
+
 get_version() {
 	version="${CYCLONEPORT_VERSION}"
 	if [[ "${version}" == "latest" ]]; then
@@ -112,10 +126,13 @@ rsync --archive \
 	"${UPDATE_PATH}/" \
 	"${WS_ROOT}/"
 
-echo_line "Deleting update files"
-
-rm -rf "${UPDATE_PATH}"
-
 echo_line "Starting all services"
 
 "${WS_ROOT}/scripts/start.sh"
+
+echo_line "Deleting update files"
+
+rm -rf "${UPDATE_PATH}"
+rm -rf "${WS_BACKUP_ROOT}"
+
+echo_done
