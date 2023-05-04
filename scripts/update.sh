@@ -56,7 +56,7 @@ EOF
 get_version() {
 	version="${CYCLONEPORT_VERSION}"
 	if [[ "${version}" == "latest" ]]; then
-		version=$(curl --silent "https://api.github.com/repos/${CYCLONEPORT_REPO}/git/refs/tags" | jq --raw-output '.[0].ref' | awk -F/ '{ print $3 }')
+		version=$(curl --silent "https://api.github.com/repos/${CYCLONEPORT_REPO}/git/refs/tags" | jq --raw-output '.[-1].ref' | awk -F/ '{ print $3 }')
 	fi
 	echo "${version}"
 }
