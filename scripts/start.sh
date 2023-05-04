@@ -41,6 +41,8 @@ docker compose "${compose_files[@]}" up -d
 
 "${WS_ROOT}/scripts/optimize-network.sh"
 
+ifconfig wlan0 down && ifconfig wlan0 up
+
 # start weatherstation system
 compose_files=("-f" "${WS_ROOT}/docker-compose.system.yaml")
 if [[ -f "${WS_ROOT}/docker-compose.system.dev.yaml" ]]; then
