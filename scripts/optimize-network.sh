@@ -4,6 +4,7 @@
 /sbin/iw wlan0 set power_save off
 /sbin/iw uap0 set power_save off
 
+# Adjust internal kernel parameters related to networking
 sysctl net.core.rmem_max=16777216
 sysctl net.core.wmem_max=16777216
 sysctl net.core.rmem_default=16777216

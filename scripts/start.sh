@@ -29,7 +29,7 @@ screen -dmS execpipe "${WS_ROOT}/scripts/execpipe.sh"
 
 # Setup wlan0
 nmcli dev set wlan0 managed no
-ifconfig wlan0 && ifconfig wlan0 down && ifconfig wlan0 up
+ifconfig wlan0 down && ifconfig wlan0 up
 systemctl start dhcpcd
 
 # Start Wifi services
@@ -37,6 +37,7 @@ docker compose -f "${WS_ROOT}/docker-compose.wifi.yaml" up -d
 
 "${WS_ROOT}/scripts/optimize-network.sh"
 
+# start weatherstation system
 docker compose -f "${WS_ROOT}/docker-compose.system.yaml" up -d
 
 # Start setup related services

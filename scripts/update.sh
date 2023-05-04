@@ -9,7 +9,7 @@ NOW_ISO8601=$(date +"%Y-%m-%d-%H-%M-%S")
 WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
 WS_BACKUP_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/../../weatherstation-${NOW_ISO8601}"
 
-UPDATE_PATH="/tmp/ws-${NOW_ISO8601}"
+TEMP_WS_PATH="/tmp/ws-${NOW_ISO8601}"
 
 RUNNING_PATH="/tmp/.cycloneport-update"
 
@@ -66,13 +66,13 @@ download_weatherstation() {
 
 	echo_line "Downloading version: ${version}"
 
-	mkdir -p "${UPDATE_PATH}"
+	mkdir -p "${TEMP_WS_PATH}"
 
-	curl --location "https://github.com/${CYCLONEPORT_REPO}/archive/refs/tags/${version}.tar.gz" | tar --extract --gzip --strip-components=1 --directory="${UPDATE_PATH}"
+	curl --location "https://github.com/${CYCLONEPORT_REPO}/archive/refs/tags/${version}.tar.gz" | tar --extract --gzip --strip-components=1 --directory="${TEMP_WS_PATH}"
 
 	# Set correct permissions
 	USER_GROUP=$(stat -c '%U:%G' "${WS_ROOT}")
-	chown -R "${USER_GROUP}" "${UPDATE_PATH}"
+	chown -R "${USER_GROUP}" "${TEMP_WS_PATH}"
 }
 
 if [[ -f "${RUNNING_PATH}" ]]; then
@@ -109,6 +109,12 @@ if [[ "$(versionToInt "${latest_version}")" -le "$(versionToInt "${active_versio
 	exit
 fi
 
+download_weatherstation "${latest_version}"
+
+echo_line "Pulling latest Docker images"
+
+"${TEMP_WS_PATH}/scripts/pull-docker-images.sh"
+
 echo_line "Stopping all services"
 
 "${WS_ROOT}/scripts/stop.sh"
@@ -117,13 +123,11 @@ echo_line "Backing everything up"
 
 cp -a "${WS_ROOT}" "${WS_BACKUP_ROOT}"
 
-download_weatherstation "${latest_version}"
-
 echo_line "Overlaying new software"
 
 rsync --archive \
 	--verbose \
-	"${UPDATE_PATH}/" \
+	"${TEMP_WS_PATH}/" \
 	"${WS_ROOT}/"
 
 echo_line "Starting all services"
@@ -132,7 +136,7 @@ echo_line "Starting all services"
 
 echo_line "Deleting update files"
 
-rm -rf "${UPDATE_PATH}"
+rm -rf "${TEMP_WS_PATH}"
 rm -rf "${WS_BACKUP_ROOT}"
 
 echo_done
