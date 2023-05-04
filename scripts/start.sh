@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
+export WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
 
 # Must be run as root
 if [[ "$EUID" -ne 0 ]]; then
@@ -16,7 +16,7 @@ if ! [[ -f "${dotenv_path}" ]]; then
 fi
 
 execpipe_path="/tmp/cycloneport-execpipe"
-if ! [[ -p $pipe ]]; then
+if ! [[ -p "${execpipe_path}" ]]; then
 	mkfifo "${execpipe_path}"
 fi
 
