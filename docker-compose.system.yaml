@@ -8,6 +8,8 @@ services:
     restart: on-failure
     privileged: true
     network_mode: "host"
+    environment:
+      WS_ROOT: "${WS_ROOT}"
     cap_add:
       - ALL
     volumes:
