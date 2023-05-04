@@ -13,9 +13,9 @@ services:
     cap_add:
       - ALL
     volumes:
-      - ./info.json:/app/info.json
-      - ./.env:/app/.env
-      - ./data:/data
+      - "${WS_ROOT}/info.json:/app/info.json"
+      - "${WS_ROOT}/.env:/app/.env"
+      - "${WS_ROOT}/data:/data"
       - /lib/modules:/lib/modules
       - /dev:/dev
       - /var/log:/var/log

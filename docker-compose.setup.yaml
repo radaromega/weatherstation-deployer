@@ -9,7 +9,7 @@ services:
     privileged: true
     network_mode: "host"
     volumes:
-      - ./.env:/weatherstation/.env
+      - "${WS_ROOT}/.env:/weatherstation/.env"
       # Used for restarting system
       - /proc/sysrq-trigger:/host/proc/sysrq-trigger
       # Used to retrieve device model

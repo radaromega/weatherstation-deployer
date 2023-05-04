@@ -21,8 +21,8 @@ services:
     restart: on-failure
     network_mode: "host"
     volumes:
-      - ./data:/data
-      - ./.env:/weatherstation/.env
+      - "${WS_ROOT}/data:/data"
+      - "${WS_ROOT}/.env:/weatherstation/.env"
     tmpfs:
       - /app/media
     privileged: true
@@ -34,5 +34,5 @@ services:
     restart: on-failure
     network_mode: "host"
     volumes:
-      - ./data:/data
-      - ./.env:/weatherstation/.env
+      - "${WS_ROOT}/data:/data"
+      - "${WS_ROOT}/.env:/weatherstation/.env"

@@ -28,4 +28,8 @@ export INTERFACE="${IFACE_LAN}"
 
 echo
 echo "Starting lan containers..."
-docker compose -f "${WS_ROOT}/docker-compose.lan.yaml" up -d
+compose_files=("-f" "${WS_ROOT}/docker-compose.lan.yaml")
+if [[ -f "${WS_ROOT}/docker-compose.lan.dev.yaml" ]]; then
+	compose_files+=( "--file" "${WS_ROOT}/docker-compose.lan.dev.yaml" )
+fi
+docker compose "${compose_files[@]}" up -d
