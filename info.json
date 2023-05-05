@@ -1,4 +1,4 @@
 {
-    "version": "1.0.8",
-    "notes": "1.0.8 includes a fix for system updates"
+    "version": "1.0.9",
+    "notes": "1.0.9 includes a check before applying a system update"
 }
