@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
+export WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
 
 # Start Wifi services
 docker compose -f "${WS_ROOT}/docker-compose.wifi.yaml" pull
