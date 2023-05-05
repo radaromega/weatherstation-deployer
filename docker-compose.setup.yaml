@@ -4,7 +4,7 @@ services:
   # Setup process
   setup:
     container_name: setup
-    image: gcr.io/cycloneport/setup:0.0.2
+    image: gcr.io/cycloneport/setup:0.0.3
     restart: on-failure
     privileged: true
     network_mode: "host"

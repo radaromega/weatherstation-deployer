@@ -64,4 +64,8 @@ docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" up -d
 screen -dmS lan "${WS_ROOT}/scripts/lan-start.sh"
 
 # Start video related services
-docker compose -f "${WS_ROOT}/docker-compose.video.yaml" up -d
+compose_files=("-f" "${WS_ROOT}/docker-compose.video.yaml")
+if [[ -f "${WS_ROOT}/docker-compose.video.dev.yaml" ]]; then
+	compose_files+=( "--file" "${WS_ROOT}/docker-compose.video.dev.yaml" )
+fi
+docker compose "${compose_files[@]}" up -d
