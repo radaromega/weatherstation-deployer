@@ -10,18 +10,19 @@ if [[ "$EUID" -ne 0 ]]; then
 	exit 1
 fi
 
+# Stop all containers
+"${WS_ROOT}/scripts/stop.sh"
+
 dotenv_path="${WS_ROOT}/.env"
 if ! [[ -f "${dotenv_path}" ]]; then
 	touch "${dotenv_path}"
 fi
 
-execpipe_path="/tmp/cycloneport-execpipe"
-if ! [[ -p "${execpipe_path}" ]]; then
-	mkfifo "${execpipe_path}"
-fi
-
 # Run execpipe
 screen -S execpipe -X quit || true
+execpipe_path="/tmp/cycloneport-execpipe"
+rm -f "${execpipe_path}"
+mkfifo "${execpipe_path}"
 screen -dmS execpipe "${WS_ROOT}/scripts/execpipe.sh"
 
 # Setup AP

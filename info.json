@@ -1,4 +1,4 @@
 {
-    "version": "1.0.9",
-    "notes": "1.0.9 includes a check before applying a system update"
+    "version": "1.0.10",
+    "notes": "1.0.10 ensures everything is stopped before starting the system."
 }

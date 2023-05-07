@@ -12,7 +12,7 @@ docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" down
 
 # Stop LAN container
 # docker compose -f "${WS_ROOT}/docker-compose.lan.yaml" down
-docker stop lan
+docker stop lan && docker rm lan
 
 # Stop video related services
 docker compose -f "${WS_ROOT}/docker-compose.video.yaml" down
