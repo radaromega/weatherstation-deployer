@@ -21,7 +21,7 @@ fi
 # Run execpipe
 screen -S execpipe -X quit || true
 execpipe_path="/tmp/cycloneport-execpipe"
-rm -f "${execpipe_path}"
+rm -rf "${execpipe_path}"
 mkfifo "${execpipe_path}"
 screen -dmS execpipe "${WS_ROOT}/scripts/execpipe.sh"
 
