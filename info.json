@@ -1,4 +1,4 @@
 {
-    "version": "1.0.11",
-    "notes": "1.0.11 makes system setup easier providing a list of available subnet masks."
+    "version": "1.0.12",
+    "notes": "1.0.12 improves the PTZ camera performance."
 }
