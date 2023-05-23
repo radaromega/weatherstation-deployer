@@ -1,4 +1,4 @@
 {
-    "version": "1.0.12",
-    "notes": "1.0.12 improves the PTZ camera performance."
+    "version": "1.0.13",
+    "notes": "1.0.13 includes a bugfix for system shutdown and reboot."
 }
