@@ -3,7 +3,7 @@ version: '3'
 services:
   # DHCP for private lan
   lan:
-    container_name: lan
+    container_name: "lan-${INTERFACE}"
     image: gcr.io/cycloneport/lan:0.0.1
     restart: on-failure
     privileged: true

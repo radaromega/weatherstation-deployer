@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o xtrace
+# set -o xtrace
 
 WPA_SUPPLICANT_FILE="/etc/wpa_supplicant/wpa_supplicant.conf"
 
