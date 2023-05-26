@@ -1,4 +1,4 @@
 {
-    "version": "1.0.15",
-    "notes": "1.0.15 fixes a bug when reporting the system version"
+    "version": "1.0.16",
+    "notes": "1.0.16 fixes a bug with IP assignment with USB ethernet adapters"
 }
