@@ -1,4 +1,4 @@
 {
-    "version": "1.0.14",
-    "notes": "1.0.14 allows IP cam search to work on all wlanX and lanX network interfaces"
+    "version": "1.0.15",
+    "notes": "1.0.15 fixes a bug when reporting the system version"
 }
