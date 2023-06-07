@@ -1,0 +1,11 @@
+#!/bin/bash
+
+last_lora_dev=$(ls /dev/ttyGPS* | tail -n 1)
+
+n=0
+if [[ ! -z "${last_lora_dev}" ]]; then
+	last_num=$(echo "${last_lora_dev}" | grep -Eo '[0-9]+$')
+	n=$((last_num+1))
+fi
+
+echo "ttyGPS${n}"
