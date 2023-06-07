@@ -1,4 +1,4 @@
 {
-    "version": "1.0.18",
-    "notes": "1.0.18 fixes a serial conflict affecting LoRa and GPS devices"
+    "version": "1.0.19",
+    "notes": "1.0.19 adds a UI for detected LoRa devices"
 }
