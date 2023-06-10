@@ -1,4 +1,4 @@
 {
-    "version": "1.0.19",
-    "notes": "1.0.19 adds a UI for detected LoRa devices"
+    "version": "1.0.20",
+    "notes": "1.0.20 improves support for multiple LoRa devices"
 }
