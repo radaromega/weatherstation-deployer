@@ -1,4 +1,4 @@
 {
-    "version": "1.0.21",
-    "notes": "1.0.21 (further) improves support for multiple LoRa devices"
+    "version": "1.0.22",
+    "notes": "1.0.22 adds preprocessing to wireless (LoRa) sensors"
 }
