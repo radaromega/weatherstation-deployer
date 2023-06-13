@@ -1,4 +1,4 @@
 {
-    "version": "1.0.22",
-    "notes": "1.0.22 adds preprocessing to wireless (LoRa) sensors"
+    "version": "1.0.23",
+    "notes": "1.0.23 enables support for the Wetbulb temperature without a globe sensor connected"
 }
