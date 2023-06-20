@@ -10,7 +10,7 @@ fi
 while true; do
     cmd=$(cat /tmp/cycloneport-execpipe)
     echo "Running: ${cmd}"
-    eval "${cmd}"
+    bash -c "${cmd}" &
     sleep 0.1
     echo
 done

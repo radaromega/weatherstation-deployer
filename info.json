@@ -1,4 +1,4 @@
 {
-    "version": "1.0.25",
-    "notes": "1.0.25 fixes a bug with the ADS1115"
+    "version": "1.0.26",
+    "notes": "1.0.26 contains bugfixes"
 }
