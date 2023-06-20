@@ -1,4 +1,4 @@
 {
-    "version": "1.0.24",
-    "notes": "1.0.24 fixes a bug when reading multiple channels from the ADC"
+    "version": "1.0.25",
+    "notes": "1.0.25 fixes a bug with the ADS1115"
 }
