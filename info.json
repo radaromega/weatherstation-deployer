@@ -1,4 +1,4 @@
 {
-    "version": "1.0.23",
-    "notes": "1.0.23 enables support for the Wetbulb temperature without a globe sensor connected"
+    "version": "1.0.24",
+    "notes": "1.0.24 fixes a bug when reading multiple channels from the ADC"
 }
