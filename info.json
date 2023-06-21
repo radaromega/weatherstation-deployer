@@ -1,4 +1,4 @@
 {
-    "version": "1.0.29",
-    "notes": "1.0.29 adds support for wireless wetbulb sensor"
+    "version": "1.0.30",
+    "notes": "1.0.30 changes the LoRa band configuration"
 }
