@@ -1,4 +1,4 @@
 {
-    "version": "1.0.30",
-    "notes": "1.0.30 changes the LoRa band configuration"
+    "version": "1.0.31",
+    "notes": "1.0.31 allows LoRa devices to be enrolled as independent devices"
 }
