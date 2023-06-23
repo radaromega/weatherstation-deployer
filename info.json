@@ -1,4 +1,4 @@
 {
-    "version": "1.0.31",
-    "notes": "1.0.31 allows LoRa devices to be enrolled as independent devices"
+    "version": "1.0.32",
+    "notes": "1.0.32 fixes a bug when naming USB serial hardware"
 }
