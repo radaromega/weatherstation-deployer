@@ -1,4 +1,4 @@
 {
-    "version": "1.0.32",
-    "notes": "1.0.32 fixes a bug when naming USB serial hardware"
+    "version": "1.0.33",
+    "notes": "1.0.33 adds support for short range LoRa devices"
 }
