@@ -4,7 +4,7 @@ services:
   # Weatherstation system
   system:
     container_name: system
-    image: gcr.io/cycloneport/system:0.0.33
+    image: gcr.io/cycloneport/system:0.0.34
     restart: on-failure
     privileged: true
     network_mode: "host"
@@ -16,6 +16,7 @@ services:
       - "${WS_ROOT}/info.json:/system/info.json"
       - "${WS_ROOT}/.env:/app/.env"
       - "${WS_ROOT}/data:/data"
+      - "${WS_HOME}/.ssh:/root/.ssh"
       - /lib/modules:/lib/modules
       - /dev:/dev
       - /var/log:/var/log

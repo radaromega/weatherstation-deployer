@@ -1,4 +1,4 @@
 {
-    "version": "1.0.33",
-    "notes": "1.0.33 adds support for short range LoRa devices"
+    "version": "1.0.34",
+    "notes": "1.0.34 improves system update performance"
 }
