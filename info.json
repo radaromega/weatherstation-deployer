@@ -1,4 +1,4 @@
 {
-    "version": "1.0.34",
-    "notes": "1.0.34 improves system update performance"
+    "version": "1.0.35",
+    "notes": "1.0.35 introduces a binary format for LoRa messages"
 }
