@@ -139,4 +139,14 @@ echo_line "Deleting update files"
 rm -rf "${TEMP_WS_PATH}"
 rm -rf "${WS_BACKUP_ROOT}"
 
+# Check containers are actually running
+
+running_containers=$(docker ps -q | wc -l)
+
+if [[ "${running_containers}" -ge "8" ]]; then
+	echo_line "Deleting old Docker images"
+
+	docker rmi $(docker images -aq)
+fi
+
 echo_done

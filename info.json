@@ -1,4 +1,4 @@
 {
-    "version": "1.0.37",
-    "notes": "1.0.37 applies preprocessing to aux. devices"
+    "version": "1.0.38",
+    "notes": "1.0.38 cleans up old Docker images properly"
 }
