@@ -1,4 +1,4 @@
 {
-    "version": "1.0.38",
-    "notes": "1.0.38 cleans up old Docker images properly"
+    "version": "1.0.39",
+    "notes": "1.0.39 reverts to using ASCII LoRa messages"
 }
