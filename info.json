@@ -1,4 +1,4 @@
 {
-    "version": "1.0.36",
-    "notes": "1.0.36 introduces a binary format for LoRa messages"
+    "version": "1.0.37",
+    "notes": "1.0.37 applies preprocessing to aux. devices"
 }
