@@ -1,4 +1,4 @@
 {
-    "version": "1.0.39",
-    "notes": "1.0.39 reverts to using ASCII LoRa messages"
+    "version": "1.0.40",
+    "notes": "1.0.40 adds rate limiting to Boltek LD 250 lightning strikes"
 }
