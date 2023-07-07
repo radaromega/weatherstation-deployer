@@ -7,6 +7,7 @@ CYCLONEPORT_VERSION="latest"
 NOW_ISO8601=$(date +"%Y-%m-%d-%H-%M-%S")
 
 WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
+WS_HOME="/home/$(stat -c '%U' "${WS_ROOT}")"
 WS_BACKUP_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/../../weatherstation-${NOW_ISO8601}"
 
 TEMP_WS_PATH="/tmp/ws-${NOW_ISO8601}"

@@ -1,4 +1,4 @@
 {
-    "version": "1.0.40",
-    "notes": "1.0.40 adds rate limiting to Boltek LD 250 lightning strikes"
+    "version": "1.0.41",
+    "notes": "1.0.41 adds support for Renogy Charge Controllers"
 }
