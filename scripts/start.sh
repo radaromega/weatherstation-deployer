@@ -50,24 +50,26 @@ compose_files=("-f" "${WS_ROOT}/docker-compose.system.yaml")
 if [[ -f "${WS_ROOT}/docker-compose.system.dev.yaml" ]]; then
 	compose_files+=( "--file" "${WS_ROOT}/docker-compose.system.dev.yaml" )
 fi
-docker compose "${compose_files[@]}" up -d
+docker compose "${compose_files[@]}" up -d &
 
 # Start setup related services
 compose_files=("-f" "${WS_ROOT}/docker-compose.setup.yaml")
 if [[ -f "${WS_ROOT}/docker-compose.setup.dev.yaml" ]]; then
 	compose_files+=( "--file" "${WS_ROOT}/docker-compose.setup.dev.yaml" )
 fi
-docker compose "${compose_files[@]}" up -d
+docker compose "${compose_files[@]}" up -d &
 
 # Start Dozzle container
-docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" up -d
+docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" up -d &
 
 # Start lan related services
-screen -dmS lan "${WS_ROOT}/scripts/lan-start.sh"
+screen -dmS lan "${WS_ROOT}/scripts/lan-start.sh" &
 
 # Start video related services
 compose_files=("-f" "${WS_ROOT}/docker-compose.video.yaml")
 if [[ -f "${WS_ROOT}/docker-compose.video.dev.yaml" ]]; then
 	compose_files+=( "--file" "${WS_ROOT}/docker-compose.video.dev.yaml" )
 fi
-docker compose "${compose_files[@]}" up -d
+docker compose "${compose_files[@]}" up -d &
+
+wait
