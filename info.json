@@ -1,4 +1,4 @@
 {
-    "version": "1.0.44",
-    "notes": "1.0.44 improves startup and shutdown speed"
+    "version": "1.0.45",
+    "notes": "1.0.45 uses new internal state management with ONVIF cameras"
 }
