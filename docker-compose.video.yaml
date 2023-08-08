@@ -17,7 +17,7 @@ services:
   # Net cam support
   net_cam:
     container_name: net_cam
-    image: gcr.io/cycloneport/net_cam:0.0.6
+    image: gcr.io/cycloneport/net_cam:0.0.7
     restart: on-failure
     network_mode: "host"
     volumes:

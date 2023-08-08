@@ -1,4 +1,4 @@
 {
-    "version": "1.0.45",
-    "notes": "1.0.45 uses new internal state management with ONVIF cameras"
+    "version": "1.0.46",
+    "notes": "1.0.46 addresses a bug where multiple cameras can fail."
 }
