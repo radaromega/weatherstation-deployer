@@ -57,7 +57,7 @@ EOF
 get_version() {
 	version="${CYCLONEPORT_VERSION}"
 	if [[ "${version}" == "latest" ]]; then
-		version=$(curl --silent "https://api.github.com/repos/${CYCLONEPORT_REPO}/git/refs/tags" | jq --raw-output '.[-1].ref' | awk -F/ '{ print $3 }')
+		version=$(curl --silent "https://www.sdsweather.com/cycloneport/system/tags.php?repo=${CYCLONEPORT_REPO}" | jq --raw-output '.[-1].ref' | awk -F/ '{ print $3 }')
 	fi
 	echo "${version}"
 }
@@ -69,7 +69,7 @@ download_weatherstation() {
 
 	mkdir -p "${TEMP_WS_PATH}"
 
-	curl --location "https://github.com/${CYCLONEPORT_REPO}/archive/refs/tags/${version}.tar.gz" | tar --extract --gzip --strip-components=1 --directory="${TEMP_WS_PATH}"
+	curl --location "https://www.sdsweather.com/cycloneport/system/archive.php?repo=${CYCLONEPORT_REPO}&version=${version}" | tar --extract --gzip --strip-components=1 --directory="${TEMP_WS_PATH}"
 
 	# Set correct permissions
 	USER_GROUP=$(stat -c '%U:%G' "${WS_ROOT}")

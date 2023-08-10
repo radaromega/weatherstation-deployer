@@ -1,4 +1,4 @@
 {
-    "version": "1.0.46",
-    "notes": "1.0.46 addresses a bug where multiple cameras can fail."
+    "version": "1.0.47",
+    "notes": "1.0.47 uses SDSWeather API for system updates."
 }
