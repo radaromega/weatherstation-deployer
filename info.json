@@ -1,4 +1,4 @@
 {
-    "version": "1.0.47",
-    "notes": "1.0.47 uses SDSWeather API for system updates."
+    "version": "1.0.48",
+    "notes": "1.0.48 ensures the Docker daemon config is set correctly."
 }
