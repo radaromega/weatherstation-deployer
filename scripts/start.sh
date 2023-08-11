@@ -17,7 +17,7 @@ fi
 # Patch to ensure Docker daemon config is set
 docker_config_path="/etc/docker/daemon.json"
 if ! [[ -f "${docker_config_path}" ]]; then
-	echo_line "Writing Docker default configuration"
+	echo "Writing Docker default configuration"
 	
 	echo '{"log-driver": "json-file", "log-opts": {"max-size": "50m", "max-file": "1"}}' > "${docker_config_path}"
 	systemctl restart docker

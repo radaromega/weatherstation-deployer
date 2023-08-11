@@ -1,4 +1,4 @@
 {
-    "version": "1.0.50",
-    "notes": "1.0.50 fixes a leak that slowly fills up the disk."
+    "version": "2.0.0",
+    "notes": "2.0.0"
 }
