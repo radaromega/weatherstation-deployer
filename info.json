@@ -1,4 +1,4 @@
 {
-    "version": "1.0.49",
-    "notes": "1.0.49 detects bad eth1 link speed and set to 10mbps if 100+ fails."
+    "version": "1.0.50",
+    "notes": "1.0.50 fixes a leak that slowly fills up the disk."
 }
