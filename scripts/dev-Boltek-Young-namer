@@ -8,7 +8,7 @@ dev="/dev/${1}"
 #stty -F "${dev}" -echo
 
 read_anything=0
-while [[ "${read_anything}" -lt 2 ]]; do
+while [[ "${read_anything}" -lt 60 ]]; do
     line=""
     while IFS= read -d '' -t .5 -rn1 char;do
         #echo -n "${char}"
@@ -20,14 +20,14 @@ while [[ "${read_anything}" -lt 2 ]]; do
         ((read_anything=read_anything+1))
     fi
     #echo
+
+    # If the line contains any Boltek keywords, then we know the serial device is connected to a Boltek system
+    if [[ "${line}" == *"WIMST"* ]] || [[ "${line}" == *"WIMLI"* ]] || [[ "${line}" == *"WIMLN"* ]]; then
+        echo "ttyBoltek"
+        exit
+    # Else we'll assume it's a Young Weather Transmitter
+    elif [[ "${line}" == *" "* ]]; then
+        echo "ttyYoung"
+        exit
+    fi
 done
-
-#echo "final line: ${line}"
-
-# If the line contains any Boltek keywords, then we know the serial device is connected to a Boltek system
-if [[ "${line}" == *"WIMST"* ]] || [[ "${line}" == *"WIMLI"* ]] || [[ "${line}" == *"WIMLN"* ]]; then
-	echo "ttyBoltek"
-# Else we'll assume it's a Young Weather Transmitter
-else
-	echo "ttyYoung"
-fi
