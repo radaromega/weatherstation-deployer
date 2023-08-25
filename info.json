@@ -1,4 +1,4 @@
 {
-    "version": "2.0.1",
-    "notes": "2.0.1 adds support for the ResponseONE 92000 Weather Transmitter"
+    "version": "2.0.2",
+    "notes": "2.0.2 improves serial device support"
 }

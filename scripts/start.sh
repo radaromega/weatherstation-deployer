@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export WS_ROOT="$(readlink -f $(dirname "${BASH_SOURCE[0]}"))/.."
+export WS_ROOT="$(realpath $(readlink -f $(dirname "${BASH_SOURCE[0]}"))/..)"
 export WS_HOME="/home/$(stat -c '%U' "${WS_ROOT}")"
 
 # Must be run as root

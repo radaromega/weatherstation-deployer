@@ -1,0 +1,33 @@
+#!/bin/bash
+
+dev="/dev/${1}"
+
+#echo "Dev: ${dev}"
+
+#stty -F "${dev}" raw
+#stty -F "${dev}" -echo
+
+read_anything=0
+while [[ "${read_anything}" -lt 2 ]]; do
+    line=""
+    while IFS= read -d '' -t .5 -rn1 char;do
+        #echo -n "${char}"
+        line="${line}${char}"
+        #read_anything=1
+    done < "${dev}"
+    if ! [[ -z "${line}" ]]; then
+        #echo "line: ${line}"
+        ((read_anything=read_anything+1))
+    fi
+    #echo
+done
+
+#echo "final line: ${line}"
+
+# If the line contains any Boltek keywords, then we know the serial device is connected to a Boltek system
+if [[ "${line}" == *"WIMST"* ]] || [[ "${line}" == *"WIMLI"* ]] || [[ "${line}" == *"WIMLN"* ]]; then
+	echo "ttyBoltek"
+# Else we'll assume it's a Young Weather Transmitter
+else
+	echo "ttyYoung"
+fi
