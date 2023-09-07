@@ -1,4 +1,4 @@
 {
-    "version": "2.0.6",
-    "notes": "2.0.6 improve how old cyclonePORT versions get cleaned up"
+    "version": "2.0.7",
+    "notes": "2.0.7 fixes a bug with force reboot"
 }
