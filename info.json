@@ -1,4 +1,4 @@
 {
-    "version": "2.0.8",
-    "notes": "2.0.8 update Python and install packages for Neopixel support"
+    "version": "2.0.9",
+    "notes": "2.0.9 addresses an issue on some networks with DHCP with eth0"
 }

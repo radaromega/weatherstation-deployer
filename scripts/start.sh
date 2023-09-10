@@ -23,6 +23,22 @@ if ! [[ -f "${docker_config_path}" ]]; then
 	systemctl restart docker
 fi
 
+# Patch to ensure dhcpcd does not manage eth0
+dhcpcd_config_path="/etc/dhcpcd.conf"
+
+DENY_ETH0="denyinterfaces eth0"
+
+if grep -q "$DENY_ETH0" "$dhcpcd_config_path" ; then
+	echo_line "Deny interface (eth0) is already set"
+else
+	echo_line "Setting denyinterface: ${DENY_ETH0}"
+	
+	echo -en '\n' >> $dhcpcd_config_path
+	echo "${DENY_ETH0}" >> $dhcpcd_config_path
+
+	systemctl restart dhcpcd
+fi
+
 dotenv_path="${WS_ROOT}/.env"
 if ! [[ -f "${dotenv_path}" ]]; then
 	touch "${dotenv_path}"
