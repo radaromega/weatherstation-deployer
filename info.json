@@ -1,4 +1,4 @@
 {
-    "version": "2.0.10",
-    "notes": "2.0.10 addresses an issue on some networks with DHCP with eth0"
+    "version": "2.0.11",
+    "notes": "2.0.11 improves serial detection of Boltek hardware"
 }

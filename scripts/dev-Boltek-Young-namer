@@ -8,10 +8,13 @@ dev="/dev/${1}"
 #stty -F "${dev}" -echo
 
 read_anything=0
-while [[ "${read_anything}" -lt 60 ]]; do
+while [[ "${read_anything}" -lt 300 ]]; do
     line=""
     while IFS= read -d '' -t .5 -rn1 char;do
         #echo -n "${char}"
+        if [[ "${char}" == *$'\n'* ]]; then
+            break
+        fi
         line="${line}${char}"
         #read_anything=1
     done < "${dev}"
