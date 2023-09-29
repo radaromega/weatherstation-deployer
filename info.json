@@ -1,4 +1,4 @@
 {
-    "version": "2.0.14",
-    "notes": "2.0.14 ensures the UUID is lowercase"
+    "version": "2.0.15",
+    "notes": "2.0.15 will drop eth1 to 100mbps instead of 10mbps in case of failure"
 }
