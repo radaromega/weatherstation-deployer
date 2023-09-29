@@ -1,4 +1,4 @@
 {
-    "version": "2.0.16",
-    "notes": "2.0.16 bugfix for eth1 failures"
+    "version": "2.0.17",
+    "notes": "2.0.17 allows the fallback speed for eth1 to be set in .env"
 }
