@@ -1,4 +1,4 @@
 {
-    "version": "2.0.15",
-    "notes": "2.0.15 will drop eth1 to 100mbps instead of 10mbps in case of failure"
+    "version": "2.0.16",
+    "notes": "2.0.16 bugfix for eth1 failures"
 }
