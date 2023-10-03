@@ -1,4 +1,4 @@
 {
-    "version": "2.0.17",
-    "notes": "2.0.17 allows the fallback speed for eth1 to be set in .env"
+    "version": "2.0.18",
+    "notes": "2.0.18 adds a setting to control whether the user wants both Short/Long Range LoRa or Long Range Only"
 }

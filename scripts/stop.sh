@@ -13,7 +13,9 @@ docker compose -f "${WS_ROOT}/docker-compose.dozzle.yaml" down &
 
 # Stop LAN container
 lan_container_ids=$(docker ps -f name=lan- -q)
-docker stop $lan_container_ids && docker rm $lan_container_ids &
+if [[ ! -z "${lan_container_ids}" ]]; then
+    docker stop $lan_container_ids && docker rm $lan_container_ids &
+fi
 
 # Stop video related services
 docker compose -f "${WS_ROOT}/docker-compose.video.yaml" down &
