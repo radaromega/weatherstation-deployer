@@ -1,4 +1,4 @@
 {
-    "version": "2.0.19",
-    "notes": "2.0.19 adds to setting to support multiple LoRa chipsets (REYAX RYLR896 and REYAX RYLR993)"
+    "version": "2.0.20",
+    "notes": "2.0.20 fixes a bug where LoRa RSSI and SNR would not get sent from aux. devices"
 }
