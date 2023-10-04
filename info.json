@@ -1,4 +1,4 @@
 {
-    "version": "2.0.18",
-    "notes": "2.0.18 adds a setting to control whether the user wants both Short/Long Range LoRa or Long Range Only"
+    "version": "2.0.19",
+    "notes": "2.0.19 adds to setting to support multiple LoRa chipsets (REYAX RYLR896 and REYAX RYLR993)"
 }
