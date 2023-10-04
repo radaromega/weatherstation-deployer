@@ -1,4 +1,4 @@
 {
-    "version": "2.0.20",
-    "notes": "2.0.20 fixes a bug where LoRa RSSI and SNR would not get sent from aux. devices"
+    "version": "2.0.21",
+    "notes": "2.0.21 fixes a bug where the Boltek is sometimes not recognised"
 }
