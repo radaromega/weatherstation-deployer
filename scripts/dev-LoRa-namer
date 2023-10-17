@@ -1,6 +1,44 @@
 #!/bin/bash
 
-dev_name="ttyLoRa"
-last_usb_num=$(echo "${1}" | grep -Eo '[0-9]+$')
+serial_name="${1}"
+last_usb_num=$(echo "${serial_name}" | grep -Eo '[0-9]+$')
 
-echo "${dev_name}${last_usb_num}"
+#!/bin/bash
+
+usb_devices_debug=$(cat "/sys/kernel/debug/usb/devices" | grep -B 2 -A 2 "Vendor=10c4 ProdID=ea60")
+
+# echo "${usb_devices_debug}"
+
+for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
+    syspath="${sysdevpath%/dev}"
+
+    if [[ "${syspath}" == *"${serial_name}"* ]]; then
+        # echo "${syspath}"
+        bus_id=$(echo "${syspath}" | grep -Eo '/[0-9]+[-][0-9]+/' | cut -d "/" -f 2)
+
+        IFS='-' read -r -a bus_split <<< "${bus_id}"
+        # echo "${bus_split[0]}"
+        # echo "${bus_split[1]}"
+
+        bus=$(printf %02d "${bus_split[0]}")
+        lev=$(printf %02d "${bus_split[1]}")
+
+        product=$(echo "${usb_devices_debug}" | grep -A 4 "Bus=${bus} Lev=${lev}" | tail -n1)
+
+        # echo "${product}"
+        
+        if [[ "${product}" == *"USB to UART"* ]]; then
+            dev_name="ttyLoRa"
+            
+            echo "${dev_name}${last_usb_num}"
+            exit
+        elif [[ "${product}" == *"Zigbee"* ]]; then
+            dev_name="ttyZigbee"
+            
+            echo "${dev_name}${last_usb_num}"
+            exit
+        fi
+    fi
+done
+
+echo "${serial_name}"

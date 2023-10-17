@@ -1,4 +1,4 @@
 {
-    "version": "2.0.27",
-    "notes": "2.0.27 changes the name of the fan actuator for LoRa devices"
+    "version": "2.0.28",
+    "notes": "2.0.28 changes LoRa serial detection to specifically look for UART devices"
 }
