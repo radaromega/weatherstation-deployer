@@ -1,4 +1,4 @@
 {
-    "version": "2.0.28",
-    "notes": "2.0.28 changes LoRa serial detection to specifically look for UART devices"
+    "version": "2.0.29",
+    "notes": "2.0.29 fixes a bug with Reyax 896 support"
 }
