@@ -1,4 +1,4 @@
 {
-    "version": "2.0.29",
-    "notes": "2.0.29 fixes a bug with Reyax 896 support"
+    "version": "2.0.30",
+    "notes": "2.0.30 adds support for up to 6 relays on LoRa devices"
 }
