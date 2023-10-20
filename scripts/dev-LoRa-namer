@@ -35,7 +35,7 @@ for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
         elif [[ "${product}" == *"Zigbee"* ]]; then
             dev_name="ttyZigbee"
             
-            echo "${dev_name}${last_usb_num}"
+            echo "${dev_name}"
             exit
         fi
     fi

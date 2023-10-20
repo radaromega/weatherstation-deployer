@@ -1,4 +1,4 @@
 {
-    "version": "2.0.31",
-    "notes": "2.0.31 displays USB devices in system debug"
+    "version": "2.0.33",
+    "notes": "2.0.33 adds a debug page for serial connections"
 }
