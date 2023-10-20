@@ -1,4 +1,4 @@
 {
-    "version": "2.0.30",
-    "notes": "2.0.30 adds support for up to 6 relays on LoRa devices"
+    "version": "2.0.31",
+    "notes": "2.0.31 displays USB devices in system debug"
 }
