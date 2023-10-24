@@ -1,4 +1,4 @@
 {
-    "version": "2.0.34",
-    "notes": "2.0.34 improves detection of Boltek systems through serial"
+    "version": "2.0.35",
+    "notes": "2.0.35 adds an actuator that can control multiple LoRa based relays at the same time"
 }
