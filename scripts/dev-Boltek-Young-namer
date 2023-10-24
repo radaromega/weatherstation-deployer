@@ -1,11 +1,19 @@
 #!/bin/bash
 
+# Must be run as root
+if [[ "$EUID" -ne 0 ]]; then
+	echo
+	echo "Please run as root"
+	echo
+	exit 1
+fi
+
 dev="/dev/${1}"
 
 #echo "Dev: ${dev}"
 
-#stty -F "${dev}" raw
-#stty -F "${dev}" -echo
+stty -F "${dev}" raw
+stty -F "${dev}" -echo
 
 # Set the baud rate
 stty -F "${dev}" 9600

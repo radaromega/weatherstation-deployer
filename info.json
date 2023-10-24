@@ -1,4 +1,4 @@
 {
-    "version": "2.0.33",
-    "notes": "2.0.33 adds a debug page for serial connections"
+    "version": "2.0.34",
+    "notes": "2.0.34 improves detection of Boltek systems through serial"
 }

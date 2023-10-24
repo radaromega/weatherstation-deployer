@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Must be run as root
+if [[ "$EUID" -ne 0 ]]; then
+	echo
+	echo "Please run as root"
+	echo
+	exit 1
+fi
+
 dev_name="ttyRenogyControl"
 last_usb_num=$(echo "${1}" | grep -Eo '[0-9]+$')
 

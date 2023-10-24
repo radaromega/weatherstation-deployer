@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Must be run as root
+if [[ "$EUID" -ne 0 ]]; then
+	echo
+	echo "Please run as root"
+	echo
+	exit 1
+fi
+
 serial_name="${1}"
 last_usb_num=$(echo "${serial_name}" | grep -Eo '[0-9]+$')
 
