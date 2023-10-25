@@ -1,4 +1,4 @@
 {
-    "version": "2.0.36",
-    "notes": "2.0.36 adds configurations when enrolling a LoRa device"
+    "version": "2.0.37",
+    "notes": "2.0.37 adds additional advanced settings for LoRa network configuration"
 }
