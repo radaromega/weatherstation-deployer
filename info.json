@@ -1,4 +1,4 @@
 {
-    "version": "2.0.39",
-    "notes": "2.0.39 adds a section in debug for SPI devices"
+    "version": "2.0.40",
+    "notes": "2.0.40 considers the windvane direction setting"
 }
