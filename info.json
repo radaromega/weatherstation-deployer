@@ -1,4 +1,4 @@
 {
-    "version": "2.0.38",
-    "notes": "2.0.38 a fix for LoRa module detection"
+    "version": "2.0.39",
+    "notes": "2.0.39 adds a section in debug for SPI devices"
 }
