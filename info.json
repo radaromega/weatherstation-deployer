@@ -1,4 +1,4 @@
 {
-    "version": "2.0.42",
-    "notes": "2.0.42 fixes an issue with Internet speedtest"
+    "version": "2.0.43",
+    "notes": "2.0.43 adds raw LoRa serial logs in Serial Connections"
 }
