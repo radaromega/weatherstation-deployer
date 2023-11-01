@@ -1,4 +1,4 @@
 {
-    "version": "2.0.43",
-    "notes": "2.0.43 adds raw LoRa serial logs in Serial Connections"
+    "version": "2.0.44",
+    "notes": "2.0.44 computes the Wind Chill Temp for BME280 and BME680."
 }
