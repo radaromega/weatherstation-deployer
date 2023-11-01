@@ -1,4 +1,4 @@
 {
-    "version": "2.0.44",
-    "notes": "2.0.44 computes the Wind Chill Temp for BME280 and BME680."
+    "version": "2.0.45",
+    "notes": "2.0.45 computes the Wind Chill Temp for BME280 and BME680."
 }
