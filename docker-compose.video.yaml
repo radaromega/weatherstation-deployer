@@ -5,7 +5,7 @@ services:
   # USB cam support
   usb_cam:
     container_name: usb_cam
-    image: gcr.io/cycloneport/usb_cam:0.0.3
+    image: gcr.io/cycloneport/usb_cam:0.0.4
     restart: on-failure
     network_mode: "host"
     volumes:
@@ -17,7 +17,7 @@ services:
   # Net cam support
   net_cam:
     container_name: net_cam
-    image: gcr.io/cycloneport/net_cam:0.0.10
+    image: gcr.io/cycloneport/net_cam:0.0.11
     restart: on-failure
     network_mode: "host"
     volumes:
@@ -30,7 +30,7 @@ services:
   # Video manager
   video_manager:
     container_name: video_manager
-    image: gcr.io/cycloneport/video_manager:0.0.4
+    image: gcr.io/cycloneport/video_manager:0.0.5
     restart: on-failure
     network_mode: "host"
     volumes:

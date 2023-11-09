@@ -1,4 +1,4 @@
 {
-    "version": "2.0.46",
-    "notes": "2.0.46 defaults to using 10mbit/s if eth1 interface becomes unstable."
+    "version": "2.0.47",
+    "notes": "2.0.47 ensures all internal services are only accessible locally"
 }

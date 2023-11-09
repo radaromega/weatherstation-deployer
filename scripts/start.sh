@@ -39,6 +39,13 @@ else
 	systemctl restart dhcpcd
 fi
 
+# Patch to ensure 'rock' user is disabled
+rock_passwd_expired=$(chage -l rock | grep "Account expires" | awk -F':' '{print $2}')
+if [[ "${rock_passwd_expired}" == *"never"* ]]; then
+	echo "Expiring 'rock' user"
+	usermod --expiredate 1 rock
+fi
+
 dotenv_path="${WS_ROOT}/.env"
 if ! [[ -f "${dotenv_path}" ]]; then
 	touch "${dotenv_path}"
