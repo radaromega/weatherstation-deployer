@@ -1,4 +1,4 @@
 {
-    "version": "2.0.55",
-    "notes": "2.0.55 adds support for the Hydreon RG-15 sensor"
+    "version": "2.0.56",
+    "notes": "2.0.56 allows the volume per flip to be adjustable"
 }

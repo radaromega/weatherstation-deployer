@@ -4,7 +4,7 @@ services:
   # Weatherstation system
   system:
     container_name: system
-    image: gcr.io/cycloneport/system:0.0.86
+    image: gcr.io/cycloneport/system:0.0.87
     restart: on-failure
     privileged: true
     network_mode: "host"
