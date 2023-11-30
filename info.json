@@ -1,4 +1,4 @@
 {
-    "version": "2.0.58",
-    "notes": "2.0.58 adds some extra debug info for GPIO and the Young 92000"
+    "version": "2.0.59",
+    "notes": "2.0.59 adds some extra debug info for GPIO and the Young 92000"
 }
