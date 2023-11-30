@@ -1,4 +1,4 @@
 {
-    "version": "2.0.57",
-    "notes": "2.0.57 adds support for an additional rain gauge via a GPIO pin"
+    "version": "2.0.58",
+    "notes": "2.0.58 adds some extra debug info for GPIO and the Young 92000"
 }

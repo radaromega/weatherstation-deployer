@@ -4,7 +4,7 @@ services:
   # Weatherstation system
   system:
     container_name: system
-    image: gcr.io/cycloneport/system:0.0.88
+    image: gcr.io/cycloneport/system:0.0.89
     restart: on-failure
     privileged: true
     network_mode: "host"
@@ -20,6 +20,7 @@ services:
       - /lib/modules:/lib/modules
       - /dev:/dev
       - /var/log:/var/log
+      - /sys/kernel/debug:/sys/kernel/debug
       - /etc/dhcpcd.conf:/etc/dhcpcd.conf
       - /etc/wpa_supplicant/wpa_supplicant.conf:/etc/wpa_supplicant/wpa_supplicant.conf
       - /etc/udev/rules.d:/etc/udev/rules.d
