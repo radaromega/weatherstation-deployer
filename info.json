@@ -1,4 +1,4 @@
 {
-    "version": "2.0.60",
-    "notes": "2.0.60 adds some extra debug info for GPIO and the Young 92000"
+    "version": "2.0.61",
+    "notes": "2.0.61 discover other devices on the network"
 }
