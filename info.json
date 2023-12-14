@@ -1,4 +1,4 @@
 {
-    "version": "2.0.62",
-    "notes": "2.0.62 adds support for Ecowitt weather stations and allows Inkbird devices to be enrollable"
+    "version": "2.0.63",
+    "notes": "2.0.63 fixes a bug if the system needs to be reboot to re-establish the connection."
 }
