@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export WS_ROOT="$(realpath $(readlink -f $(dirname "${BASH_SOURCE[0]}"))/..)"
+
+dotenv="${WS_ROOT}/.env"
+
 # Must be run as root
 if [[ "$EUID" -ne 0 ]]; then
 	echo

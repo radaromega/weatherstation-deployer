@@ -1,11 +1,36 @@
 #!/bin/bash
 
+export WS_ROOT="$(realpath $(readlink -f $(dirname "${BASH_SOURCE[0]}"))/..)"
+
+dotenv="${WS_ROOT}/.env"
+
+if [[ -f "${dotenv}" ]]; then
+	set -o allexport
+	source "${dotenv}" set
+	set +o allexport
+fi
+
 # Must be run as root
 if [[ "$EUID" -ne 0 ]]; then
 	echo
 	echo "Please run as root"
 	echo
 	exit 1
+fi
+
+# This script runs for USB devices with idVendor = 067b
+# But we can redirect to another script...
+if [[ -n "${DEV_067b}" ]]; then
+	if [[ "${DEV_067b}" == "0403_6001" ]]; then
+		"${WS_ROOT}/scripts/dev-Boltek-Young-namer" "${1}"
+		exit
+	elif [[ "${DEV_067b}" == "0403_6015" ]]; then
+		"${WS_ROOT}/scripts/dev-RenogyControl-namer" "${1}"
+		exit
+	elif [[ "${DEV_067b}" == "10c4_ea60" ]]; then
+		"${WS_ROOT}/scripts/dev-LoRa-namer" "${1}"
+		exit
+	fi
 fi
 
 dev_name="ttyGPS"
