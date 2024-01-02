@@ -1,4 +1,4 @@
 {
-    "version": "2.0.65",
-    "notes": "2.0.65 allows control over a 2nd general purpose relay"
+    "version": "2.0.66",
+    "notes": "2.0.66 uses a different pin for relay 2"
 }
