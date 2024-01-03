@@ -1,4 +1,4 @@
 {
-    "version": "2.0.66",
-    "notes": "2.0.66 uses a different pin for relay 2"
+    "version": "2.0.67",
+    "notes": "2.0.67 adds support for Boltek ERL-10"
 }
