@@ -1,4 +1,4 @@
 {
-    "version": "2.0.75",
-    "notes": "2.0.75 disables usage of NeoPixel once a system shutdown or reboot has been triggered"
+    "version": "2.0.76",
+    "notes": "2.0.76 adds a UI to monitor lightning from Boltek ERL-10"
 }
