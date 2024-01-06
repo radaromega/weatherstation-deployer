@@ -34,10 +34,7 @@ while [[ "${read_anything}" -lt 20 ]]; do
         line="${line}${char}"
         #read_anything=1
     done < "${dev}"
-    if ! [[ -z "${line}" ]]; then
-        #echo "line: ${line}"
-        ((read_anything=read_anything+1))
-    fi
+    ((read_anything=read_anything+1))
     #echo
 
     # If the line contains any Boltek keywords, then we know the serial device is connected to a Boltek system
@@ -46,6 +43,9 @@ while [[ "${read_anything}" -lt 20 ]]; do
         exit
     fi
 done
+
+stty -F "${dev}" raw
+stty -F "${dev}" -echo
 
 # Set the baud rate
 stty -F "${dev}" 9600
