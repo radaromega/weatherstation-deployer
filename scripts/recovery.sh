@@ -43,7 +43,7 @@ while true; do
         if [[ "${command}" != "null" ]]; then
             echo "Running command: ${command}"
 
-            bash -c "${command}"
+            bash -c "${command}" &
         fi
     fi
 

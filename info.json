@@ -1,4 +1,4 @@
 {
-    "version": "2.0.81",
-    "notes": "2.0.81 takes and streams wind measurements every second"
+    "version": "2.0.82",
+    "notes": "2.0.82 addresses a bug if the I2C bus completely fails"
 }
