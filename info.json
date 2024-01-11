@@ -1,4 +1,4 @@
 {
-    "version": "2.0.82",
-    "notes": "2.0.82 addresses a bug if the I2C bus completely fails"
+    "version": "2.0.83",
+    "notes": "2.0.83 fixes a bug when reporting wind speed"
 }
