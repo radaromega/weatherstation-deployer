@@ -1,4 +1,4 @@
 {
-    "version": "2.0.83",
-    "notes": "2.0.83 fixes a bug when reporting wind speed"
+    "version": "2.0.84",
+    "notes": "2.0.84 clean up Tailscale"
 }

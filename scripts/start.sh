@@ -11,8 +11,21 @@ if [[ "$EUID" -ne 0 ]]; then
 	exit 1
 fi
 
-# Stop all containers
+# Stop everything
 "${WS_ROOT}/scripts/stop.sh"
+
+# Create empty .env if it does not exist
+dotenv_path="${WS_ROOT}/.env"
+if ! [[ -f "${dotenv_path}" ]]; then
+	touch "${dotenv_path}"
+fi
+
+# Source the .env file
+if [[ -f "${dotenv_path}" ]]; then
+	set -o allexport
+	source "${dotenv_path}" set
+	set +o allexport
+fi
 
 # Patch to ensure Docker daemon config is set
 docker_config_path="/etc/docker/daemon.json"
@@ -46,9 +59,12 @@ if [[ "${rock_passwd_expired}" == *"never"* ]]; then
 	usermod --expiredate 1 rock
 fi
 
-dotenv_path="${WS_ROOT}/.env"
-if ! [[ -f "${dotenv_path}" ]]; then
-	touch "${dotenv_path}"
+# Patch to remove Tailscale
+if [[ -z ${TAILSCALE+x} ]]; then
+	if [[ -x "$(command -v tailscale)" ]]; then
+		echo "Tailscale is installed. Logging out..."
+		tailscale logout || true
+	fi
 fi
 
 # Run execpipe
