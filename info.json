@@ -1,4 +1,4 @@
 {
-    "version": "2.0.84",
-    "notes": "2.0.84 clean up Tailscale"
+    "version": "2.0.85",
+    "notes": "2.0.85 adds support for sensors connected via serial using the ASCII protocol"
 }

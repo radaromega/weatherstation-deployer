@@ -12,7 +12,10 @@ if [[ "$EUID" -ne 0 ]]; then
 	exit 1
 fi
 
-dev="/dev/${1}"
+serial_name="${1}"
+last_usb_num=$(echo "${serial_name}" | grep -Eo '[0-9]+$')
+
+dev="/dev/${serial_name}"
 
 #echo "Dev: ${dev}"
 
@@ -58,18 +61,18 @@ while [[ "${read_anything}" -lt 300 ]]; do
 
     line=""
     while IFS= read -d '' -t .5 -rn1 char; do
-        #echo -n "${char}"
+        # echo -n "${char}"
         if [[ "${char}" == *$'\n'* ]]; then
             break
         fi
         line="${line}${char}"
-        #read_anything=1
+        # read_anything=1
     done < "${dev}"
     if ! [[ -z "${line}" ]]; then
-        #echo "line: ${line}"
+        # echo "line: ${line}"
         ((read_anything=read_anything+1))
     fi
-    #echo
+    # echo
 
     # If the line contains any Boltek keywords, then we know the serial device is connected to a Boltek system
     if [[ "${line}" == *"WIMST"* ]] || [[ "${line}" == *"WIMLI"* ]] || [[ "${line}" == *"WIMLN"* ]]; then
@@ -77,6 +80,9 @@ while [[ "${read_anything}" -lt 300 ]]; do
         exit
     elif [[ "${line}" == *"RInt"* ]] || [[ "${line}" == *"HYDREON"* ]]; then
         echo "ttyHydreon"
+        exit
+    elif [[ "${line}" == "PLD="* ]]; then
+        echo "ttyWS${last_usb_num}"
         exit
     # Wait for alteast 30 cycles and then lastly we'll assume it's a Young Weather Transmitter
     elif [[ "${read_anything}" -gt 20 ]] && [[ "${line}" == *" "* ]]; then
