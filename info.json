@@ -1,4 +1,4 @@
 {
-    "version": "2.0.90",
-    "notes": "2.0.90 adds support for sensors connected via serial using the ASCII protocol"
+    "version": "2.0.91",
+    "notes": "2.0.91 adds support for sensors connected via serial using the ASCII protocol"
 }
