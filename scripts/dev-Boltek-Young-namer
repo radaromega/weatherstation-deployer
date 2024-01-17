@@ -81,9 +81,6 @@ while [[ "${read_anything}" -lt 300 ]]; do
     elif [[ "${line}" == *"RInt"* ]] || [[ "${line}" == *"HYDREON"* ]]; then
         echo "ttyHydreon"
         exit
-    elif [[ "${line}" == "PLD="* ]]; then
-        echo "ttyWS${last_usb_num}"
-        exit
     # Wait for alteast 30 cycles and then lastly we'll assume it's a Young Weather Transmitter
     elif [[ "${read_anything}" -gt 20 ]] && [[ "${line}" == *" "* ]]; then
         echo "ttyYoung"
