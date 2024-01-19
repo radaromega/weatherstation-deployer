@@ -1,4 +1,4 @@
 {
-    "version": "2.0.92",
-    "notes": "2.0.92 adds support for sensors connected via serial using the ASCII protocol"
+    "version": "2.0.93",
+    "notes": "2.0.93 fixes a bug where PTZ controls can stop working after several days of uptime"
 }
