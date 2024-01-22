@@ -1,4 +1,4 @@
 {
-    "version": "2.0.95",
-    "notes": "2.0.95 fixes a bug when processing incoming local serial messages"
+    "version": "2.0.96",
+    "notes": "2.0.96 fixes a bug processing windspeed"
 }
