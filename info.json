@@ -1,4 +1,4 @@
 {
-    "version": "2.0.98",
-    "notes": "2.0.98 adds support for heat index and wind chill temp from local serial devices"
+    "version": "2.0.99",
+    "notes": "2.0.99 adds support for heat index and wind chill temp from local serial devices"
 }
