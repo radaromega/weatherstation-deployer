@@ -1,4 +1,4 @@
 {
-    "version": "2.0.104",
-    "notes": "2.0.104 only emit telemetry when connected to server"
+    "version": "2.0.105",
+    "notes": "2.0.105 only emit voltage from Serial Bridge if there is a voltage"
 }
