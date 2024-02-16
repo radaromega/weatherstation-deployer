@@ -1,4 +1,4 @@
 {
-    "version": "2.0.106",
-    "notes": "2.0.106 only emit voltage from Serial Bridge if there is a voltage"
+    "version": "2.0.107",
+    "notes": "2.0.107 ensures a connection if non is made after 60 seconds"
 }
