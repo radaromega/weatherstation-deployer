@@ -1,4 +1,4 @@
 {
-    "version": "2.0.107",
-    "notes": "2.0.107 ensures a connection if non is made after 60 seconds"
+    "version": "2.0.108",
+    "notes": "2.0.108 changes hardware detection for MT and LoRa hardware"
 }

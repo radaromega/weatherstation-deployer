@@ -19,19 +19,52 @@ dev="/dev/${serial_name}"
 
 #echo "Dev: ${dev}"
 
+# First we try to detect LoRa hardware (896 or 998)
+# Using the baud rate 115200
 stty -F "${dev}" raw
 stty -F "${dev}" -echo
+stty -F "${dev}" 115200
 
-# First try to detect MT WS devices
-# Which uses 9600 baud rate
+read_anything=0
+read_char=0
+while [[ "${read_anything}" -lt 6 ]]; do
+    echo -ne "AT\r\n" > "${dev}" &
+
+    line=""
+    while IFS= read -d '' -t .5 -rn1 char; do
+        # echo -n "${char}"
+        if [[ "${char}" == *$'\n'* ]] || [[ "${read_char}" -gt 300 ]]; then
+            break
+        fi
+        line="${line}${char}"
+        ((read_char=read_char+1))
+    done < "${dev}"
+    ((read_anything=read_anything+1))
+    #echo
+    
+    wait
+
+    # If the line contains any MT WS keywords
+    if [[ "${line}" == *"OK"* ]] || [[ "${line}" == *"ERR"* ]]; then
+        echo "ttyLoRa${last_usb_num}"
+        exit
+    fi
+done
+
+# Secondly we set the baud rate to 9600 to try detect
+# MT WS devices or LoRa hardware (993)
+stty -F "${dev}" raw
+stty -F "${dev}" -echo
 stty -F "${dev}" 9600
 
 read_anything=0
 read_char=0
 while [[ "${read_anything}" -lt 20 ]]; do
+    echo -ne "AT\r\n" > "${dev}" &
+
     line=""
     while IFS= read -d '' -t .5 -rn1 char; do
-        #echo -n "${char}"
+        # echo -n "${char}"
         if [[ "${char}" == *$'\n'* ]] || [[ "${read_char}" -gt 300 ]]; then
             break
         fi
@@ -41,53 +74,17 @@ while [[ "${read_anything}" -lt 20 ]]; do
     ((read_anything=read_anything+1))
     #echo
 
+    wait
+
     # If the line contains any MT WS keywords
     if [[ "${line}" == "PLD="* ]]; then
         echo "ttyWS${last_usb_num}"
         exit
+    elif [[ "${line}" == *"OK"* ]] || [[ "${line}" == *"ERR"* ]]; then
+        echo "ttyLoRa${last_usb_num}"
+        exit
     fi
 done
 
-dev_name="ttyLoRa"
-
-echo "${dev_name}${last_usb_num}"
-exit
-
-usb_devices_debug=$(cat "/sys/kernel/debug/usb/devices" | grep -B 2 -A 2 "Vendor=10c4 ProdID=ea60")
-
-# echo "${usb_devices_debug}"
-
-for sysdevpath in $(find /sys/bus/usb/devices/usb*/ -name dev); do
-    syspath="${sysdevpath%/dev}"
-
-    if [[ "${syspath}" == *"${serial_name}"* ]]; then
-        echo "${syspath}"
-        bus_id=$(echo "${syspath}" | grep -Eo '/[0-9]+[-][0-9]+/' | cut -d "/" -f 2)
-
-        IFS='-' read -r -a bus_split <<< "${bus_id}"
-        echo "${bus_split[0]}"
-        echo "${bus_split[1]}"
-
-        bus=$(printf %02d "${bus_split[0]}")
-        cnt=$(printf %02d "${bus_split[1]}")
-
-        echo "${usb_devices_debug}"
-        product=$(echo "${usb_devices_debug}" | grep -E -A 4 "Bus=${bus}.*Cnt=${cnt}" | tail -n1)
-
-        # echo "${product}"
-        
-        if [[ "${product}" == *"USB to UART"* ]]; then
-            dev_name="ttyLoRa"
-            
-            echo "${dev_name}${last_usb_num}"
-            exit
-        elif [[ "${product}" == *"Zigbee"* ]]; then
-            dev_name="ttyZigbee"
-            
-            echo "${dev_name}"
-            exit
-        fi
-    fi
-done
-
-echo "${serial_name}"
+# Failing all this, we'll assume MT WS hardware
+echo "ttyWS${last_usb_num}"
