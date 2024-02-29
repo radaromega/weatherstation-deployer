@@ -1,4 +1,4 @@
 {
-    "version": "2.0.108",
-    "notes": "2.0.108 changes hardware detection for MT and LoRa hardware"
+    "version": "2.0.109",
+    "notes": "2.0.109 addresses a bug where offsets can fail for serial bridge hardware"
 }
