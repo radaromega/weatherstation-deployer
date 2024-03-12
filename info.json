@@ -1,4 +1,4 @@
 {
-    "version": "2.0.112",
-    "notes": "2.0.112 updates gpsd to solve a bug with U-blox hardware"
+    "version": "2.0.113",
+    "notes": "2.0.113 fixes a bug when querying network gateway"
 }
