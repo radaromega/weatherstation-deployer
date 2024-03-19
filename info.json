@@ -1,4 +1,4 @@
 {
-    "version": "2.0.114",
-    "notes": "2.0.114 will only send wind data when the hardware exists"
+    "version": "2.0.115",
+    "notes": "2.0.115 auto set iOS specific setting for some cams"
 }
