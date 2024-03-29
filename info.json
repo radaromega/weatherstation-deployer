@@ -1,4 +1,4 @@
 {
-    "version": "2.0.116",
-    "notes": "2.0.116 fixes a bug detecting LoRa serial hardware"
+    "version": "2.0.117",
+    "notes": "2.0.117 introduces a watchdog for the weatherstation process"
 }
