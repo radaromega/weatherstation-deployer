@@ -1,4 +1,4 @@
 {
-    "version": "2.0.117",
-    "notes": "2.0.117 introduces a watchdog for the weatherstation process"
+    "version": "2.0.118",
+    "notes": "2.0.118 enables relay to reset the bridge"
 }
