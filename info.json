@@ -1,4 +1,4 @@
 {
-    "version": "2.0.119",
-    "notes": "2.0.119 enables relay to reset the bridge"
+    "version": "2.0.120",
+    "notes": "2.0.120 allows offsets applied to temp and humidity to affect wetbulb globe calculations"
 }
