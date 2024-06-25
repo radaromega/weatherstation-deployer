@@ -1,4 +1,4 @@
 {
-    "version": "2.0.121",
-    "notes": "2.0.121 allows offsets applied to temp and humidity to affect wetbulb globe calculations"
+    "version": "2.0.122",
+    "notes": "2.0.122 allows a cap to be set for the raingauge volume"
 }
