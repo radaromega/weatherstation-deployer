@@ -1,4 +1,4 @@
 {
-    "version": "2.0.125",
-    "notes": "2.0.125 allows a cap to be set for the raingauge volume"
+    "version": "2.0.126",
+    "notes": "2.0.126 corrects the derived values from MT hardware"
 }
