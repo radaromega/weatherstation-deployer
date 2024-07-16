@@ -1,4 +1,4 @@
 {
-    "version": "2.0.126",
-    "notes": "2.0.126 corrects the derived values from MT hardware"
+    "version": "2.0.127",
+    "notes": "2.0.127 adds a check for WBGT calculation"
 }
