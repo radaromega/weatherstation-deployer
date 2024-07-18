@@ -1,4 +1,4 @@
 {
-    "version": "2.0.127",
-    "notes": "2.0.127 adds a check for WBGT calculation"
+    "version": "2.0.128",
+    "notes": "2.0.128 adds support for INA219 from MT WS devices"
 }
