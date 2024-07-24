@@ -39,18 +39,18 @@ fi
 # Patch to ensure dhcpcd does not manage eth0
 dhcpcd_config_path="/etc/dhcpcd.conf"
 
-DENY_ETH0="denyinterfaces eth0"
+# DENY_ETH0="denyinterfaces eth0"
 
-if grep -q "$DENY_ETH0" "$dhcpcd_config_path" ; then
-	echo "Deny interface (eth0) is already set"
-else
-	echo "Setting denyinterface: ${DENY_ETH0}"
+# if grep -q "$DENY_ETH0" "$dhcpcd_config_path" ; then
+# 	echo "Deny interface (eth0) is already set"
+# else
+# 	echo "Setting denyinterface: ${DENY_ETH0}"
 	
-	echo -en '\n' >> $dhcpcd_config_path
-	echo "${DENY_ETH0}" >> $dhcpcd_config_path
+# 	echo -en '\n' >> $dhcpcd_config_path
+# 	echo "${DENY_ETH0}" >> $dhcpcd_config_path
 
-	systemctl restart dhcpcd
-fi
+# 	systemctl restart dhcpcd
+# fi
 
 # Patch to ensure 'rock' user is disabled
 rock_passwd_expired=$(chage -l rock | grep "Account expires" | awk -F':' '{print $2}')
@@ -65,6 +65,17 @@ if [[ -z ${TAILSCALE+x} ]]; then
 		echo "Tailscale is installed. Logging out..."
 		tailscale logout || true
 	fi
+fi
+
+# Patch to remove denyinterface from dhcpcd config
+dhcpcd_search_string="denyinterfaces eth0"
+dhcpcd_filename="/etc/dhcpcd.conf"
+
+if grep -q "$dhcpcd_search_string" "$dhcpcd_filename"; then
+	echo "${dhcpcd_search_string} found inside ${dhcpcd_filename}. Removing..."
+
+    sed -i "/$dhcpcd_search_string/d" "$dhcpcd_filename"
+    service dhcpcd restart
 fi
 
 # Run execpipe
