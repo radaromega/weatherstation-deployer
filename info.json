@@ -1,4 +1,4 @@
 {
-    "version": "2.0.129",
-    "notes": "2.0.129 fixes a bug with static IP settings"
+    "version": "2.0.130",
+    "notes": "2.0.130 computes the wetbulb temp if the value is not provided and if it is possible."
 }
