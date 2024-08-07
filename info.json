@@ -1,4 +1,4 @@
 {
-    "version": "2.0.132",
-    "notes": "2.0.132 adds support for Young 09101."
+    "version": "2.0.133",
+    "notes": "2.0.133 adds additional debug for serial devices."
 }
