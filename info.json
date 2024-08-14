@@ -1,4 +1,4 @@
 {
-    "version": "2.0.135",
-    "notes": "2.0.135 supports using Boltek hardware via the same UART used for GPS hardware"
+    "version": "2.0.136",
+    "notes": "2.0.136 adds wetbulb globe temperature support for extra hardware"
 }
