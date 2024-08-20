@@ -1,4 +1,4 @@
 {
-    "version": "2.0.136",
-    "notes": "2.0.136 adds wetbulb globe temperature support for extra hardware"
+    "version": "2.0.137",
+    "notes": "2.0.137 fixes a bug with the DHCP client"
 }

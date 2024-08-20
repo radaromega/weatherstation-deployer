@@ -36,22 +36,6 @@ if ! [[ -f "${docker_config_path}" ]]; then
 	systemctl restart docker
 fi
 
-# Patch to ensure dhcpcd does not manage eth0
-dhcpcd_config_path="/etc/dhcpcd.conf"
-
-# DENY_ETH0="denyinterfaces eth0"
-
-# if grep -q "$DENY_ETH0" "$dhcpcd_config_path" ; then
-# 	echo "Deny interface (eth0) is already set"
-# else
-# 	echo "Setting denyinterface: ${DENY_ETH0}"
-	
-# 	echo -en '\n' >> $dhcpcd_config_path
-# 	echo "${DENY_ETH0}" >> $dhcpcd_config_path
-
-# 	systemctl restart dhcpcd
-# fi
-
 # Patch to ensure 'rock' user is disabled
 rock_passwd_expired=$(chage -l rock | grep "Account expires" | awk -F':' '{print $2}')
 if [[ "${rock_passwd_expired}" == *"never"* ]]; then
@@ -67,15 +51,24 @@ if [[ -z ${TAILSCALE+x} ]]; then
 	fi
 fi
 
-# Patch to remove denyinterface from dhcpcd config
+# Patch to add/remove denyinterface to dhcpcd config
 dhcpcd_search_string="denyinterfaces eth0"
 dhcpcd_filename="/etc/dhcpcd.conf"
 
-if grep -q "$dhcpcd_search_string" "$dhcpcd_filename"; then
-	echo "${dhcpcd_search_string} found inside ${dhcpcd_filename}. Removing..."
-
-    sed -i "/$dhcpcd_search_string/d" "$dhcpcd_filename"
-    service dhcpcd restart
+if grep -q "ip_address=" "$dhcpcd_filename"; then
+	# Static IP config
+	if grep -q "$dhcpcd_search_string" "$dhcpcd_filename"; then
+		echo "Removing denyinterfaces eth0 because we're using Static IP"
+		sed -i "/$dhcpcd_search_string/d" "$dhcpcd_filename"
+		service dhcpcd restart
+	fi
+else
+	# DHCP config
+	if ! grep -q "$dhcpcd_search_string" "$dhcpcd_filename"; then
+		echo "Adding denyinterfaces eth0 because we're using DHCP"
+		echo "${dhcpcd_search_string}" >> "$dhcpcd_filename"
+		service dhcpcd restart
+	fi
 fi
 
 # Run execpipe
