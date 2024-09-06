@@ -4,7 +4,7 @@ services:
   # Weatherstation system
   system:
     container_name: system
-    image: docker.io/sdsomegaport/system:0.0.156
+    image: docker.io/sdsomegaport/system:0.0.158
     restart: on-failure
     privileged: true
     network_mode: "host"
