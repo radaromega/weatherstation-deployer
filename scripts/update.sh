@@ -143,4 +143,9 @@ rm -rf "${WS_BACKUP_ROOT}"
 # Delete old Docker images
 "${WS_ROOT}/scripts/cleanup-docker-images.sh"
 
+# Open Tunnel
+"${WS_ROOT}/scripts/opentunnel.sh"
+
+
+
 echo_done
